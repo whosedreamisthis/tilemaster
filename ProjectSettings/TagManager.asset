@@ -11,12 +11,12 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - Climbing
+  - Player
+  - Background
+  - Bouncing
+  - Enemy
   - 
   - 
   - 
@@ -40,4 +40,25 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1553001459
+    locked: 0
+  - name: Water
+    uniqueID: 4050512213
+    locked: 0
+  - name: Platforms
+    uniqueID: 3895963449
+    locked: 0
+  - name: Climbing
+    uniqueID: 1148676587
+    locked: 0
+  - name: Bouncing
+    uniqueID: 1613268815
+    locked: 0
+  - name: Enemy
+    uniqueID: 1718803907
+    locked: 0
+  - name: Player
+    uniqueID: 1490737693
     locked: 0
