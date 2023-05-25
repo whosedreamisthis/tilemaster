@@ -61,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
         if (!capsuleCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")))
         {
             rb.gravityScale = startGravityScale;
+            animator.SetBool("IsClimbing", false);
             return;
         }
 
