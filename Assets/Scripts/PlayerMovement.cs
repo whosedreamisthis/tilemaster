@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float moveSpeed = 4;
     [SerializeField] float jumpSpeed = 15;
     [SerializeField] float climbSpeed = 4;
+    [SerializeField] Vector2 deathKick = new Vector2(10f, 10f);
     Animator animator;
     Vector2 moveInput;
     Rigidbody2D rb;
@@ -100,6 +101,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("here");
             isAlive = false;
             animator.SetTrigger("Dying");
+            rb.velocity = deathKick;
         }
     }
 
