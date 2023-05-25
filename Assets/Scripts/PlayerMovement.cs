@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     CapsuleCollider2D bodyCollider;
     BoxCollider2D feetCollider;
     float startGravityScale;
+    bool isAlive = true;
     void Start()
     {
         bodyCollider = GetComponent<CapsuleCollider2D>();
@@ -25,19 +26,24 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (!isAlive) { return; }
         Run();
         FlipSprite();
         ClimbLadder();
+        Die();
     }
+
 
     void OnMove(InputValue value)
     {
+        if (!isAlive) { return; }
         moveInput = value.Get<Vector2>();
 
     }
 
     void OnJump(InputValue value)
     {
+        if (!isAlive) { return; }
         if (!feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             return;
@@ -86,4 +92,14 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+
+    void Die()
+    {
+        if (bodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")))
+        {
+            isAlive = false;
+            animator.SetTrigger("Dying");
+        }
+    }
+
 }
