@@ -12,19 +12,22 @@ public class LevelExit : MonoBehaviour
     }
     IEnumerator StartNextLevel()
     {
-        yield return new WaitForSeconds(startLevelDelay);
+        yield return new WaitForSeconds(.01f);
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         currentSceneIndex++;
         if (currentSceneIndex >= SceneManager.sceneCountInBuildSettings)
         {
             currentSceneIndex = 0;
         }
+        ScenePersist scenePersist = FindObjectOfType<ScenePersist>();
+        scenePersist.ResetScenePersists();
         SceneManager.LoadScene(currentSceneIndex);
     }
 
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+
 
         if (other.tag == "Player")
         {
