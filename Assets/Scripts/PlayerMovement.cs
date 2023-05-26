@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 4;
@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Vector2 deathKick = new Vector2(10f, 10f);
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] Transform gun;
+    [SerializeField] bool GOD_MODE = true;
     Animator animator;
     Vector2 moveInput;
     Rigidbody2D rb;
@@ -34,7 +35,11 @@ public class PlayerMovement : MonoBehaviour
         Run();
         FlipSprite();
         ClimbLadder();
-        Die();
+        if (!GOD_MODE)
+        {
+            Die();
+        }
+
     }
 
 
@@ -48,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
     void OnJump(InputValue value)
     {
         if (!isAlive) { return; }
-        if (!feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if (!feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground", "Climbing")))
         {
             return;
         }
@@ -110,7 +115,15 @@ public class PlayerMovement : MonoBehaviour
             isAlive = false;
             animator.SetTrigger("Dying");
             rb.velocity = deathKick;
+            //StartCoroutine(RestartLevel());
+            FindObjectOfType<GameSession>().ProcessPlayerDeath();
         }
+    }
+
+    IEnumerator RestartLevel()
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 }

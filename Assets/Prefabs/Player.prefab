@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 4779517056598335339}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -68,7 +68,7 @@ Transform:
   m_Children:
   - {fileID: 4075713367912366102}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &8537621891197375059
 Animator:
@@ -129,7 +129,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1490737693
-  m_SortingLayer: 8
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_Sprite: {fileID: 1383818394, guid: 0ae057488d388c045a5c8d46ca834cd3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -226,7 +226,8 @@ MonoBehaviour:
   climbSpeed: 4
   deathKick: {x: 20, y: 20}
   bulletPrefab: {fileID: 7184308398190543035, guid: bc2cb46c0ae4cc3419fe205c9c867e3f, type: 3}
-  gun: {fileID: 0}
+  gun: {fileID: 4075713367912366102}
+  GOD_MODE: 0
 --- !u!61 &4779517056598335339
 BoxCollider2D:
   m_ObjectHideFlags: 0
