@@ -24513,14 +24513,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4641053897384411832, guid: ca4859ff52a09884d888b495aa79a0d5, type: 3}
-      propertyPath: gun
-      value: 
-      objectReference: {fileID: 8537621892199821529}
-    - target: {fileID: 4641053897384411832, guid: ca4859ff52a09884d888b495aa79a0d5, type: 3}
-      propertyPath: GOD_MODE
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8537621891197375058, guid: ca4859ff52a09884d888b495aa79a0d5, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -24569,15 +24561,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8537621891197375061, guid: ca4859ff52a09884d888b495aa79a0d5, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: ca4859ff52a09884d888b495aa79a0d5, type: 3}
---- !u!4 &8537621892199821529 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4075713367912366102, guid: ca4859ff52a09884d888b495aa79a0d5, type: 3}
-  m_PrefabInstance: {fileID: 8537621892199821527}
-  m_PrefabAsset: {fileID: 0}
