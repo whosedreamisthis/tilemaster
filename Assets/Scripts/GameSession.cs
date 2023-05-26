@@ -3,9 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 public class GameSession : MonoBehaviour
 {
     [SerializeField] int playerLives = 3;
+    [SerializeField] int score = 0;
+    [SerializeField] TextMeshProUGUI livesText;
+    [SerializeField] TextMeshProUGUI scoreText;
+
     public static GameSession Instance;
     void Awake()
     {
@@ -22,6 +27,12 @@ public class GameSession : MonoBehaviour
 
     }
 
+    void Start()
+    {
+        livesText.text = playerLives.ToString();
+        scoreText.text = score.ToString();
+    }
+
     public void ProcessPlayerDeath()
     {
         if (playerLives > 1)
@@ -34,6 +45,12 @@ public class GameSession : MonoBehaviour
         }
     }
 
+    public void AddToScore(int points)
+    {
+        score += points;
+        scoreText.text = score.ToString();
+    }
+
     private void ResetGameSession()
     {
         SceneManager.LoadScene(0);
@@ -43,6 +60,8 @@ public class GameSession : MonoBehaviour
     void TakeLife()
     {
         playerLives--;
+        livesText.text = playerLives.ToString();
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
